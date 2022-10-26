@@ -32,9 +32,22 @@ createApp({
                 }
             ],
             tabindex : 0,
-        }
+        };
     },
     methods:{
-
+        slideForward: function(){
+            if(this.tabindex < this.slides.length - 1){
+                this.tabindex++
+            }else{
+                this.tabindex = 0
+            }
+        },
+        slideBackward: function(){
+            if(this.tabindex > 0){
+                this.tabindex--
+            }else{
+                this.tabindex = this.slides.length - 1
+            }
+        }
     }
 }).mount('#app')

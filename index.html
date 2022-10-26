@@ -27,9 +27,9 @@
                 </div>
 
                 <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="next"></div>
-                    <!-- multiply the thumbs with v-for using only one div and img -->
+                    <div class="prev" @click="slideBackward"></div>
+                    <div class="next" @click="slideForward"></div>
+                    <!-- multiply the thumbs@click="slideForward" with v-for using only one div and img -->
                     <div v-for="(objectThumbs, indexSlides) in slides" class="thumb">
                         <img :src="slides[indexSlides].image" :alt="slides[indexSlides].title"/>
                     </div>
