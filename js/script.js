@@ -55,6 +55,6 @@ createApp({
         }
     },
     created : function(){
-        
+        setInterval(this.slideForward,2000);
     }
 }).mount('#app')
