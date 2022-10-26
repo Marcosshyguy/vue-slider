@@ -32,6 +32,7 @@ createApp({
                 }
             ],
             tabindex : 0,
+            
         };
     },
     methods:{

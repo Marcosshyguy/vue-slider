@@ -15,7 +15,7 @@
 
         <div class="container" >
             <div class="slider-wrapper">
-
+                <!-- used the interpolation and the keyes of the original array -->
                 <div class="item">
                     <img :src="slides[tabindex].image" alt="Svezia" />
                     <div class="text">
@@ -29,8 +29,10 @@
                 <div class="thumbs">
                     <div class="prev" @click="slideBackward"></div>
                     <div class="next" @click="slideForward"></div>
-                    <!-- multiply the thumbs@click="slideForward" with v-for using only one div and img -->
-                    <div v-for="(objectThumbs, indexSlides) in slides" class="thumb">
+                    <!-- multiply the thumbs with v-for using only one div and img -->
+                    <!-- also i toggled the class to the "v-fored" thumbs using condintion inside v-bind -->
+                    <div v-for="(objectThumbs, indexSlides) in slides" class="thumb" :class="tabindex === indexSlides ? 'active' : ''">
+
                         <img :src="slides[indexSlides].image" :alt="slides[indexSlides].title"/>
                     </div>
                     <!-- <div class="thumb">
