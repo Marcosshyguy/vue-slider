@@ -32,7 +32,7 @@ createApp({
                 }
             ],
             tabindex : 0,
-            
+            indexSlides : 0
         };
     },
     methods:{
@@ -49,6 +49,12 @@ createApp({
             }else{
                 this.tabindex = this.slides.length - 1
             }
+        },
+        relativePicture: function(arrayIndex){
+            this.tabindex = arrayIndex
         }
+    },
+    created : function(){
+        
     }
 }).mount('#app')

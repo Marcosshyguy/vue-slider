@@ -31,9 +31,9 @@
                     <div class="next" @click="slideForward"></div>
                     <!-- multiply the thumbs with v-for using only one div and img -->
                     <!-- also i toggled the class to the "v-fored" thumbs using condintion inside v-bind -->
-                    <div v-for="(objectThumbs, indexSlides) in slides" class="thumb" :class="tabindex === indexSlides ? 'active' : ''">
+                    <div  v-for="(objectThumbs, indexSlides) in slides" class="thumb" :class="tabindex === indexSlides ? 'active' : ''" >
 
-                        <img :src="slides[indexSlides].image" :alt="slides[indexSlides].title"/>
+                        <img :src="slides[indexSlides].image" :alt="slides[indexSlides].title" @click = "relativePicture(indexSlides)"/>
                     </div>
                     <!-- <div class="thumb">
                         <img src="img/02.jpg" alt="Svizzera" />
