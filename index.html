@@ -14,7 +14,10 @@
     <div id="app">
 
         <div class="container" >
-            <div class="slider-wrapper">
+            <div class="slider-wrapper"
+            @mouseover="stopPlay"
+            @mouseleave="autoPlay"
+            >
                 <!-- used the interpolation and the keyes of the original array -->
                 <div class="item">
                     <img :src="slides[tabindex].image" alt="Svezia" />
@@ -26,14 +29,14 @@
                     </div>
                 </div>
 
-                <div class="thumbs">
+                <div class="thumbs" @mouseover="beduinoFolle">
                     <div class="prev" @click="slideBackward"></div>
                     <div class="next" @click="slideForward"></div>
                     <!-- multiply the thumbs with v-for using only one div and img -->
                     <!-- also i toggled the class to the "v-fored" thumbs using condintion inside v-bind -->
                     <div  v-for="(objectThumbs, indexSlides) in slides" class="thumb" :class="tabindex === indexSlides ? 'active' : ''" >
 
-                        <img :src="slides[indexSlides].image" :alt="slides[indexSlides].title" @click = "relativePicture(indexSlides)"/>
+                        <img :src="slides[indexSlides].image" :alt="slides[indexSlides].title" @click = "relativePicture(indexSlides)" @mouseover="stopPlay"/>
                     </div>
                     <!-- <div class="thumb">
                         <img src="img/02.jpg" alt="Svizzera" />

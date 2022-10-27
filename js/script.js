@@ -32,7 +32,9 @@ createApp({
                 }
             ],
             tabindex : 0,
-            indexSlides : 0
+            indexSlides : 0,
+            // impostato a null dato che non corrispondea nussun numero inizialmenete
+            interval : null
         };
     },
     methods:{
@@ -52,9 +54,21 @@ createApp({
         },
         relativePicture: function(arrayIndex){
             this.tabindex = arrayIndex
+        },
+        autoPlay: function(){
+            if(this.interval === null){
+                
+                this.interval = setInterval(() => {
+                    this.slideForward();
+                }, 2000);
+            }
+        },
+        stopPlay:function(){
+            clearInterval(this.interval);
+            this.interval = null
         }
     },
-    created : function(){
-        setInterval(this.slideForward,2000);
+    created (){
+        this.autoPlay()
     }
 }).mount('#app')
